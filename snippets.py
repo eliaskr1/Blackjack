@@ -1,4 +1,4 @@
-
+# Codesnippets som kommer användas i programmet. Implementering än så länge är oklar
 
 import random, os
 # Klass för kort
@@ -68,26 +68,6 @@ print("- If you go OVER you lose. If you")
 print("- go LOWER than the house you lose.")
 print("-" * ui_width)
 
-player_draw()
-player_draw()
-
-house_draw()
-house_draw()
-
 player_value = hand_value(player_hand)
 house_value = hand_value(house_hand)
 
-print("Player's hand:")
-for card in player_hand:
-    print(card)
-print("Player value:", player_value)
-
-print("House hand:")
-for card in house_hand:
-    print(card)
-print("House value:", house_value)
-
-if house_value >= player_value:
-    print("The house wins!")
-else:
-    print("You win! Congratulations!")
