@@ -52,12 +52,15 @@ def hand_value(hand):
 
     return total_value
 
+# Ta fram värdet ur spelarens och husets händer
+player_value = hand_value(player_hand)
+house_value = hand_value(house_hand)
 
 if os.name == "nt": # Rensa terminal
     os.system("cls")
 elif os.name == "posix":
     os.system("clear")
-
+# UI
 print("*" * ui_width)
 print("TWENTYONE".center(ui_width))
 print("Version 1.0.0".center(ui_width))
@@ -68,6 +71,14 @@ print("- If you go OVER you lose. If you")
 print("- go LOWER than the house you lose.")
 print("-" * ui_width)
 
-player_value = hand_value(player_hand)
-house_value = hand_value(house_hand)
 
+# Skriv ut händer
+print("Player's hand:")
+for card in player_hand:
+    print(card)
+print("Player value:", player_value)
+
+print("House hand:")
+for card in house_hand:
+    print(card)
+print("House value:", house_value)

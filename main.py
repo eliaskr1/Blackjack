@@ -52,42 +52,68 @@ def hand_value(hand):
 
     return total_value
 
+while True:
+    if os.name == "nt": # Rensa terminal
+        os.system("cls")
+    elif os.name == "posix":
+        os.system("clear")
 
-if os.name == "nt": # Rensa terminal
-    os.system("cls")
-elif os.name == "posix":
-    os.system("clear")
+    print("*" * ui_width)
+    print("TWENTYONE".center(ui_width))
+    print("Version 1.0.0".center(ui_width))
+    print("-" * ui_width)
+    print("- The point of this card game is")
+    print("- to get as close to 21 as possible.")
+    print("- If you go OVER you lose. If you")
+    print("- go LOWER than the house you lose.")
+    print("-"*ui_width)
+    print("- D    | Draw a card")
+    print("- S    | Stay")
+    print("- exit | Exit game")
+    print("-"*ui_width)
 
-print("*" * ui_width)
-print("TWENTYONE".center(ui_width))
-print("Version 1.0.0".center(ui_width))
-print("-" * ui_width)
-print("- The point of this card game is")
-print("- to get as close to 21 as possible.")
-print("- If you go OVER you lose. If you")
-print("- go LOWER than the house you lose.")
-print("-" * ui_width)
+    print("Player's hand:")
+    for card in player_hand:
+        print(card)
+    player_value = hand_value(player_hand)
+    print("Player value:", player_value)
+    print("-"*ui_width)
 
-player_draw()
-player_draw()
+    print("House's hand:")
+    for card in house_hand:
+        print(card)
+    house_value = hand_value(house_hand)
+    print("House value:", house_value)
+    print("-"*ui_width)
+    u_input = input("> ")
+    
+    if u_input == "d":
+        player_draw()
+        player_value = hand_value(player_hand)
+        if player_value > 21:
+            print("Player busts! You lose.")
+            break
+        
+    elif u_input == "s":
+        while house_value < player_value and house_value <= 21:
+            house_draw()
+            house_value = hand_value(house_hand)
+        if house_value > 21:
+            print("House busts! You win.")
+            input("Press 'Enter' to continue")
+        elif house_value == player_value:
+            print("It's a tie!")
+            input("Press 'Enter' to continue")
+        elif house_value > player_value:
+            print("House wins!")
+            input("Press 'Enter' to continue")
 
-house_draw()
-house_draw()
+    elif u_input == "exit":
+        print("Exiting game...")
+        break
 
-player_value = hand_value(player_hand)
-house_value = hand_value(house_hand)
+    else:
+        print("ERROR. Unknown command")
+        input("Press enter to try again...")
 
-print("Player's hand:")
-for card in player_hand:
-    print(card)
-print("Player value:", player_value)
-
-print("House hand:")
-for card in house_hand:
-    print(card)
-print("House value:", house_value)
-
-if house_value >= player_value:
-    print("The house wins!")
-else:
-    print("You win! Congratulations!")
+        
