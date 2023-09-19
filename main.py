@@ -1,6 +1,6 @@
 
-
 import random, os
+import utils as u
 # Klass för kort
 class Card:
     def __init__(self, suit, rank, value):
