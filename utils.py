@@ -1,4 +1,4 @@
-import random, os
+import random
 # Klass för kort
 class Card():
     def __init__(self, suit, rank, value):
