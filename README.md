@@ -18,3 +18,5 @@ TODO:
 ## Version 1.2.2
 - utils.py Kod dokumenterad.
 - main.py gjordes lite mer läslig, samt version# uppdaterat
+## Version 1.2.3
+- Fixade en felskrivning i UI i main.py

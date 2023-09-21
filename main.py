@@ -24,7 +24,7 @@ while True:
     # Intro UI
     print("|" + "*" * ui_width + "|")
     print("|" + "TWENTYONE".center(ui_width) + "|")
-    print("|" + "Version 1.2.2".center(ui_width) + "|")
+    print("|" + "Version 1.2.3".center(ui_width) + "|")
     print("|" + "-" * ui_width + "|")
     print("| The point of this card game is         |")
     print("| to get as close to 21 as possible.     |")
@@ -47,13 +47,13 @@ while True:
             # Ingame UI
             print("|" + "*" * ui_width + "|")
             print("|" + "TWENTYONE".center(ui_width) + "|")
-            print("|" + "Version 1.2.2".center(ui_width) + "|")
+            print("|" + "Version 1.2.3".center(ui_width) + "|")
             print("|" + "-" * ui_width + "|")
             print("| WINS:", win_counter, "| LOSSES:", loss_counter, "|".rjust(20))
             print("|" + "-" * ui_width + "|")
             print("| D    | Draw a card" + "|".rjust(22))
             print("| S    | Stay" + "|".rjust(29))
-            print("| Menu | Return to main menu game" + "|".rjust(9))
+            print("| Menu | Return to main menu" + "|".rjust(14))
             print("|" + "-" * ui_width + "|")
             
             # Skriver ut spelarens hand
@@ -141,7 +141,7 @@ while True:
                     print("Exiting game...")
                     break
                 else:
-                    
+
                     # Samma logik som när spelaren drar över 21
                     for card in player_hand:
                         deck.append(card)
