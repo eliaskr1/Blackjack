@@ -12,3 +12,6 @@ Logik för spelet är klar.
 TODO:
 - Fixa snyggare UI
 - Förbättra dokumentation för kod.
+## Version 1.2.1
+- Kod dokumenterad.
+- UI färdigställt
