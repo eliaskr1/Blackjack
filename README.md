@@ -13,5 +13,8 @@ TODO:
 - Fixa snyggare UI
 - Förbättra dokumentation för kod.
 ## Version 1.2.1
-- Kod dokumenterad.
+- 'main.py' Kod dokumenterad.
 - UI färdigställt
+## Version 1.2.2
+- utils.py Kod dokumenterad.
+- main.py gjordes lite mer läslig, samt version# uppdaterat

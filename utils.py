@@ -7,16 +7,28 @@ class Card():
         self.value = value
 
     def __str__(self):
+        '''
+        Skriver ut kort objekten som 'Rank of Suit'
+        '''
         return f"{self.rank} of {self.suit}"
     
 # Klass för kortlek
 class Deck(list):
     def __init__(self):
-        # Gör att objekt från denna klass automatiskt skapar en kortlek.
+        '''
+        Objekt från denna klass ärver från "list" datatypen.
+        Gör också att construct_deck() metoden anropas
+        när Deck() objekt konstrueras
+        '''
         super().__init__(self.construct_deck())
         self.name = "Deck"
     
     def construct_deck(self):
+        '''
+        Skapar en kortlek med 52 Card() objekt med params
+        suits, ranks, values. Parar ihop ranks med values
+        och skapar kort för varje rank-value pair i varje färg.
+        '''
         suits = ["Hearts", "Diamonds", "Clubs", "Spades"]
         ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"]
         values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
@@ -28,7 +40,9 @@ class Deck(list):
 # Klass för hand
 class Hand(list):
     def __init__(self, name):
-        # Ärver alla metoder och egenskaper från "list" datatypen
+        '''
+        Ärver alla metoder och egenskaper från "list" datatypen
+        '''
         super().__init__()
         self.name = name
     
@@ -40,6 +54,10 @@ class Hand(list):
         self.append(deck.pop(0))
     
     def hand_value(self):
+        '''
+        Räknar ut värdet på den instansen som anropar
+        metoden.
+        '''
         total_value = 0
         num_aces = 0  # För att hantera ess som kan vara 14 eller 1
 
@@ -54,23 +72,3 @@ class Hand(list):
             num_aces -= 1
 
         return total_value
-'''
-# Rensa terminal
-if os.name == "nt": 
-    os.system("cls")
-elif os.name == "posix":
-    os.system("clear")
-
-# Konstruktor för kortlek
-deck = Deck()
-Deck.shuffle_deck(deck)
-
-# Konstruktorer för händer
-player_hand = Hand("Player hand")
-house_hand = Hand("House hand")
-
-# Syntax för att dra kort
-player_hand.draw(deck)
-house_hand.draw(deck)
-'''
-

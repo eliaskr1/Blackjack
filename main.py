@@ -24,7 +24,7 @@ while True:
     # Intro UI
     print("|" + "*" * ui_width + "|")
     print("|" + "TWENTYONE".center(ui_width) + "|")
-    print("|" + "Version 1.2.1".center(ui_width) + "|")
+    print("|" + "Version 1.2.2".center(ui_width) + "|")
     print("|" + "-" * ui_width + "|")
     print("| The point of this card game is         |")
     print("| to get as close to 21 as possible.     |")
@@ -35,6 +35,7 @@ while True:
     print("| Exit  | Exit game                      |")
     print("|" + "-" * ui_width + "|")
     cmd = input("> ").lower()
+
     # Starta spelet
     if cmd == "start":
         while True:
@@ -46,7 +47,7 @@ while True:
             # Ingame UI
             print("|" + "*" * ui_width + "|")
             print("|" + "TWENTYONE".center(ui_width) + "|")
-            print("|" + "Version 1.2.1".center(ui_width) + "|")
+            print("|" + "Version 1.2.2".center(ui_width) + "|")
             print("|" + "-" * ui_width + "|")
             print("| WINS:", win_counter, "| LOSSES:", loss_counter, "|".rjust(20))
             print("|" + "-" * ui_width + "|")
@@ -67,23 +68,27 @@ while True:
 
             # Logik och UI för "Draw" alternativet
             if choice == "d":
+
                 # Skriver ut vilket kort som drogs och räknar ut värdet på spelarens hand
                 print("-" * ui_width)
                 print(f"You drew {deck[0]}")
                 print("-" * ui_width)
                 player_hand.draw(deck)
                 player_value = player_hand.hand_value()
+
                 # Logik om spelaren drar för högt
                 if player_value > 21:
                     loss_counter += 1
                     print(f"Bust! {player_value} is over 21. You lose.")
                     print("Press any key to play again!")
                     print("Type 'Menu' to return to main menu")
+
                     # Spelaren får välja om man vill spela igen eller stänga av
                     go_again = input("> ").lower()
                     if go_again == "menu":
                         print("Exiting game...")
                         break
+
                     # Resettar spelet
                     else:
                         # Flyttar kort från händer till kortlek
@@ -93,8 +98,10 @@ while True:
                         for card in house_hand:
                             deck.append(card)
                         house_hand.clear()
+
                         # Blandar kortlek
                         deck.shuffle_deck()
+
                         # Återställer värdet av händer efter händer är tomma
                         player_value = player_hand.hand_value()
                         house_value = house_hand.hand_value()
@@ -103,6 +110,7 @@ while True:
                 
             # Logik och UI för "Stay" alternativet
             elif choice == "s":
+
                 # Datorns logik för om den ska stanna eller ta ett till kort
                 while house_value < 16:
                     house_hand.draw(deck)
@@ -133,6 +141,7 @@ while True:
                     print("Exiting game...")
                     break
                 else:
+                    
                     # Samma logik som när spelaren drar över 21
                     for card in player_hand:
                         deck.append(card)
